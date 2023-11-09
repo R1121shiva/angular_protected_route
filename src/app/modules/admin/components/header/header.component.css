@@ -1,9 +1,12 @@
 .right-nav{
     display:flex;
-    gap: 15px;
+    gap: 35px;
     color: #fff !important;
     align-items: center;
 }
 .active{
     color: #ec6100;
+}
+.navbar-brand img{
+    width: 81px !important;
 }

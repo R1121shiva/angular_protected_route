@@ -8,12 +8,15 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  toastTitle: string = '';
+  toastMessage: string = '';
+  showToast: boolean = false;
   username: string = '';
   password: string = '';
   constructor(private authservice: AuthService, private router: Router) {}
 
-  ngOnInit(){
-    if(this.authservice.isLoggedIn()){
+  ngOnInit() {
+    if (this.authservice.isLoggedIn()) {
       this.router.navigate(['admin']);
     }
   }
@@ -25,7 +28,9 @@ export class LoginComponent {
         this.router.navigate(['/admin']);
       },
       (err: Error) => {
-        alert(err.message);
+        this.toastTitle = 'Login Error';
+        this.toastMessage = err.message;
+        this.showToast = true;
       }
     );
   }

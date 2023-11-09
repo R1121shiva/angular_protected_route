@@ -9,13 +9,15 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { authGuard } from './guard/auth.guard';
 import { AuthService } from './service/auth.service';
+import { ToastModalComponent } from './components/toast-modal/toast-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ToastModalComponent
   ],
   imports: [
     BrowserModule,
