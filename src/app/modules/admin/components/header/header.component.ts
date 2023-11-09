@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,11 @@ export class HeaderComponent {
   }
   logout(){
     this.authservice.loggedOut();
+    Swal.fire({
+      icon: 'success',
+      title: "Logged Out successfully!",
+      text: 'Welcome back!',
+    });
     this.router.navigate(['login']);
   }
 }

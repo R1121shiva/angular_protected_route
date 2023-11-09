@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -25,12 +26,22 @@ export class LoginComponent {
     const pass = this.password;
     this.authservice.loggedIn(userid, pass).subscribe(
       (result) => {
+        Swal.fire({
+          icon: 'success',
+          title: "Logged in successfully!",
+          text: 'Welcome back!',
+        });
         this.router.navigate(['/admin']);
       },
       (err: Error) => {
-        this.toastTitle = 'Login Error';
-        this.toastMessage = err.message;
-        this.showToast = true;
+        Swal.fire({
+          icon: 'error',
+          title: `${err.message}`,
+          text: 'Welcome back!',
+        });
+        // this.toastTitle = 'Login Error';
+        // this.toastMessage = err.message;
+        // this.showToast = true;
       }
     );
   }
